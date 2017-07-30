@@ -1,0 +1,33 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:wc="clr-namespace:WpfControls.ImageButton;assembly=WpfControls" x:Class="WpfApplication.Pages.MainPage" 
+      mc:Ignorable="d" 
+      d:DesignHeight="493.23" d:DesignWidth="1054.333"
+	Title="MainPage" ShowsNavigationUI="True">
+    <Page.Background>
+        <ImageBrush ImageSource="pack://siteoforigin:,,,/Assets/Images/bg_main.jpg" Stretch="UniformToFill"/>
+    </Page.Background>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <Grid x:Name="btnsGrid" Height="203" Margin="102,219,102,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" UseLayoutRounding="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <wc:ImageButton x:Name="profileButton" Content="ImageButton" Grid.Column="1" HorizontalAlignment="Center" Height="168" Margin="0" VerticalAlignment="Center" Width="154" DefaultImage="pack://siteoforigin:,,,/Assets/Images/btn_profile.png"/>
+            <wc:ImageButton x:Name="businessButton" Content="ImageButton" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Height="180" Width="180" DefaultImage="pack://siteoforigin:,,,/Assets/Images/btn_business.png" Click="businessButton_Click"/>
+            <wc:ImageButton x:Name="partyButton" Content="ImageButton" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Height="154" Width="162" DefaultImage="pack://siteoforigin:,,,/Assets/Images/btn_party.png" Grid.Column="2"/>
+            <wc:ImageButton x:Name="cultureButton" Content="ImageButton" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Height="154" Width="162" DefaultImage="pack://siteoforigin:,,,/Assets/Images/btn_culture.png" Grid.Column="3"/>
+        </Grid>
+        <Image Height="84" Margin="202,110,203,0" VerticalAlignment="Top" Source="/WpfApplication;component/Assets/Images/logo.png"/>
+
+    </Grid>
+</Page>

@@ -1,0 +1,72 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ib="clr-namespace:WpfControls.ImageButton"
+                    xmlns:conv="clr-namespace:WpfControls.ImageButton.Converters"
+                    xmlns:vm="clr-namespace:WpfControls.ImageButton.ViewModels">
+    <!-- Converter -->
+    <conv:DefaultImageConverter x:Key="DefaultImageConverter" />
+    <conv:DefaultDisabledImageConverter x:Key="DefaultDisabledImageConverter" />
+    <conv:DefaultDisabledMaskConverter x:Key="DefaultDisabledMaskConverter" />
+    
+    <ControlTemplate x:Key="ImageButtonTemplate" TargetType="{x:Type ib:ImageButton}">
+        <Image
+            MinHeight="20"
+            MinWidth="20"
+            x:Name="ButtonBorder"
+            Source="{Binding DefaultImage ,RelativeSource={RelativeSource TemplatedParent}}"
+            />
+        <!--<Border
+            x:Name="ButtonBorder"
+            BorderThickness="0"
+            CornerRadius="0"
+            MinHeight="20"
+            MinWidth="20">
+            <Border.Background>
+                <ImageBrush ImageSource="{Binding DefaultImage ,RelativeSource={RelativeSource TemplatedParent}}" />
+            </Border.Background>
+        </Border>-->
+        <ControlTemplate.Triggers>
+            <!-- Hover the button -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter TargetName="ButtonBorder" Property="Source">
+                    <Setter.Value>
+                        <MultiBinding Converter="{StaticResource DefaultImageConverter}">
+                            <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FocusedImage" />
+                            <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="DefaultImage" />
+                        </MultiBinding>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <!-- Button is Disabled -->
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="ButtonBorder" Property="Source">
+                    <Setter.Value>
+                        <MultiBinding Converter="{StaticResource DefaultDisabledImageConverter}">
+                            <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="DisabledImage" />
+                            <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="DefaultImage" />
+                        </MultiBinding>
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="ButtonBorder" Property="OpacityMask">
+                    <Setter.Value>
+                        <MultiBinding Converter="{StaticResource DefaultDisabledMaskConverter}">
+                            <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="DisabledImage" />
+                            <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="DefaultImage" />
+                        </MultiBinding>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    
+    <!-- Default Style for Image Button -->
+    <Style TargetType="{x:Type ib:ImageButton}" BasedOn="{x:Null}">
+        <Setter Property="Template" Value="{StaticResource ImageButtonTemplate}" />
+    </Style>
+    
+    <!-- Default Representation of ImageButtonViewModel -->
+    <DataTemplate DataType="{x:Type vm:ImageButtonViewModel}">
+        <ib:ImageButton DefaultImage="{Binding DefaultImageName}" FocusedImage="{Binding FocusedImageName}" DisabledImage="{Binding DisabledImageName}" />
+    </DataTemplate>
+</ResourceDictionary>
