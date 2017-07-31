@@ -6,7 +6,7 @@
       xmlns:wc="clr-namespace:WpfControls.ImageButton;assembly=WpfControls" x:Class="WpfApplication.Pages.MainPage" 
       mc:Ignorable="d" 
       d:DesignHeight="493.23" d:DesignWidth="1054.333"
-	Title="MainPage" ShowsNavigationUI="True">
+	Title="MainPage" ShowsNavigationUI="True" Unloaded="Page_Unloaded">
     <Page.Background>
         <ImageBrush ImageSource="pack://siteoforigin:,,,/Assets/Images/bg_main.jpg" Stretch="UniformToFill"/>
     </Page.Background>
@@ -22,7 +22,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <wc:ImageButton x:Name="profileButton" Content="ImageButton" Grid.Column="1" HorizontalAlignment="Center" Height="168" Margin="0" VerticalAlignment="Center" Width="154" DefaultImage="pack://siteoforigin:,,,/Assets/Images/btn_profile.png"/>
+            <wc:ImageButton x:Name="profileButton" Content="ImageButton" Grid.Column="1" HorizontalAlignment="Center" Height="168" Margin="0" VerticalAlignment="Center" Width="154" DefaultImage="pack://siteoforigin:,,,/Assets/Images/btn_profile.png" Click="profileButton_Click" />
             <wc:ImageButton x:Name="businessButton" Content="ImageButton" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Height="180" Width="180" DefaultImage="pack://siteoforigin:,,,/Assets/Images/btn_business.png" Click="businessButton_Click"/>
             <wc:ImageButton x:Name="partyButton" Content="ImageButton" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Height="154" Width="162" DefaultImage="pack://siteoforigin:,,,/Assets/Images/btn_party.png" Grid.Column="2"/>
             <wc:ImageButton x:Name="cultureButton" Content="ImageButton" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Height="154" Width="162" DefaultImage="pack://siteoforigin:,,,/Assets/Images/btn_culture.png" Grid.Column="3"/>

@@ -19,9 +19,11 @@ namespace WpfApplication.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+        BrowserPage browserPage;
         public MainPage()
         {
             InitializeComponent();
+            browserPage = new BrowserPage();
         }
 
 
@@ -30,5 +32,18 @@ namespace WpfApplication.Pages
             var uri = new Uri("pack://application:,,,/Pages/Business/IndexPage.xaml");
             this.NavigationService.Navigate(uri);
         }
+
+        private void profileButton_Click(object sender, RoutedEventArgs e)
+        {
+            //var uri = new Uri("pack://application:,,,/Pages/BrowserPage.xaml");
+            this.NavigationService.Navigate(browserPage);
+        }
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+     
     }
 }
