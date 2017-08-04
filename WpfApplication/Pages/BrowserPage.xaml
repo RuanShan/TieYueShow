@@ -13,6 +13,8 @@
             <ColumnDefinition Width="53*"/>
             <ColumnDefinition Width="247*"/>
         </Grid.ColumnDefinitions>
-        <cefSharp:ChromiumWebBrowser x:Name="webBrowser" Grid.Row="0" Grid.ColumnSpan="2" />
+        <cefSharp:ChromiumWebBrowser x:Name="webView" Grid.Row="0" Grid.ColumnSpan="2" />
+        <Button x:Name="debugBtn" Content="Debug" Margin="0,0,22,31" Click="debugBtn_Click" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="103" />
+
     </Grid>
 </Page>

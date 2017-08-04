@@ -20,9 +20,12 @@ namespace WpfApplication.Pages
     /// </summary>
     public partial class FirstPage : Page
     {
+        BrowserPage browser;
+
         public FirstPage()
         {
             InitializeComponent();
+            browser = new BrowserPage();
         }
 
         private void mediaPlayer_Loaded(object sender, RoutedEventArgs e)
@@ -46,13 +49,35 @@ namespace WpfApplication.Pages
 
         private void mediaPlayer_MediaEnded(object sender, RoutedEventArgs e)
         {
-
+            webStartBtn_Click(sender, e);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //this.mediaPlayer.Play();
 
+        }
+
+        private void webStartBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //关闭视频，释放内存
+            this.NavigationService.Navigate(browser);
+            this.mediaPlayer.Close();
+        }
+
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void mediaPlayer_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void mediaPlayer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            webStartBtn_Click(sender, e);
         }
     }
 }

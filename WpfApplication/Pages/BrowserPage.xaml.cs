@@ -27,7 +27,7 @@ namespace WpfApplication.Pages
         {
             InitializeComponent();
             string uri = new Uri(GetPagePath("index.html")).AbsoluteUri;
-            this.webBrowser.Address = uri;
+            this.webView.Address = uri;
         }
 
         private string GetPagePath(string pageName)
@@ -37,7 +37,12 @@ namespace WpfApplication.Pages
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
-            this.webBrowser.Dispose();
+            this.webView.Dispose();
+        }
+
+        private void debugBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //this.webView.GetBrowser().sh
         }
     }
 }

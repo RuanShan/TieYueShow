@@ -5,11 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="314.943" d:DesignWidth="537.931"
-	Title="FirstPage" ShowsNavigationUI="True">
+	Title="FirstPage" ShowsNavigationUI="True" Unloaded="Page_Unloaded">
 
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
-        <MediaElement x:Name="mediaPlayer" Height="289" Margin="10,10,10,0" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Assets/Videos/logov.mp4" Loaded="mediaPlayer_Loaded" UnloadedBehavior="Manual" Stretch="Fill" MediaEnded="mediaPlayer_MediaEnded" LoadedBehavior="Manual" />
-        <Button x:Name="startBtn" Content="Button" HorizontalAlignment="Left" Margin="227,171,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" RenderTransformOrigin="0.306,-3.252"/>
+        <MediaElement x:Name="mediaPlayer" Source="pack://siteoforigin:,,,/Assets/Videos/logov.mp4" Loaded="mediaPlayer_Loaded" UnloadedBehavior="Manual" Stretch="Fill" MediaEnded="mediaPlayer_MediaEnded" LoadedBehavior="Manual" MouseUp="mediaPlayer_MouseUp" MouseLeftButtonUp="mediaPlayer_MouseLeftButtonUp" />
 
     </Grid>
 </Page>
