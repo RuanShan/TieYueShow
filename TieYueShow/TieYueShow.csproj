@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoundObject.cs" />
     <Compile Include="BrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>

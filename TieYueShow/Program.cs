@@ -29,8 +29,10 @@ namespace TieYueShow
             //Perform dependency check to make sure all relevant resources are in our output directory.
             Cef.Initialize(settings, performDependencyCheck: true, browserProcessHandler: null);
 
-            var browser = new BrowserForm();
-            Application.Run(browser);
+            var browserForm = new BrowserForm();
+
+
+            Application.Run(browserForm);
 
         }
     }

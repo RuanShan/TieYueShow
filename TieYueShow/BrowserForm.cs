@@ -19,7 +19,8 @@ namespace TieYueShow
         public BrowserForm()
         {
             InitializeComponent();
-            string uri = new Uri(GetPagePath("index.html")).AbsoluteUri;
+            //string uri = new Uri(GetPagePath("index.html")).AbsoluteUri;
+            string uri = new Uri(GetPagePath("splash.html")).AbsoluteUri;
 
             Text = "CefSharp";
             WindowState = FormWindowState.Maximized;
@@ -28,6 +29,13 @@ namespace TieYueShow
             {
                 Dock = DockStyle.Fill,
             };
+
+            // https://github.com/cefsharp/CefSharp/wiki/Frequently-asked-questions#JSEvent
+            // After your ChromiumWebBrowser has been instantiated (for WPF directly after `InitializeComponent();` in the control constructor).
+            var obj = new BoundObject();
+            browser.RegisterJsObject("bound", obj);
+            browser.FrameLoadEnd += obj.OnFrameLoadEnd;
+
             toolStripContainer.ContentPanel.Controls.Add(browser);
 
             browser.LoadingStateChanged += OnLoadingStateChanged;
