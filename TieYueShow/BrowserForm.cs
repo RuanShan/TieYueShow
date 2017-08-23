@@ -33,7 +33,7 @@ namespace TieYueShow
             // https://github.com/cefsharp/CefSharp/wiki/Frequently-asked-questions#JSEvent
             // After your ChromiumWebBrowser has been instantiated (for WPF directly after `InitializeComponent();` in the control constructor).
             var obj = new BoundObject();
-            browser.RegisterJsObject("bound", obj);
+            browser.RegisterJsObject("c_bound", obj);
             browser.FrameLoadEnd += obj.OnFrameLoadEnd;
 
             toolStripContainer.ContentPanel.Controls.Add(browser);
