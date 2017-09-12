@@ -34,7 +34,7 @@ namespace TieYueShow
 
         public void OnTrigger(string e)
         {
-            MessageBox.Show(string.Format("trigger: {0}", e));
+            //MessageBox.Show(string.Format("trigger: {0}", e));
             if (e == "exit")
             {
                 Application.Exit();

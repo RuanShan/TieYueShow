@@ -34,6 +34,8 @@ namespace TieYueShow
             // After your ChromiumWebBrowser has been instantiated (for WPF directly after `InitializeComponent();` in the control constructor).
             var obj = new BoundObject();
             browser.RegisterJsObject("c_bound", obj);
+            browser.RegisterAsyncJsObject("c_video_manager_async", new TieYueShow.VideoManagerObject.AsyncVideoManagerObject()); //Standard object rego
+
             browser.FrameLoadEnd += obj.OnFrameLoadEnd;
 
             toolStripContainer.ContentPanel.Controls.Add(browser);
@@ -96,7 +98,7 @@ namespace TieYueShow
 
         public void DisplayOutput(string output)
         {
-            //this.InvokeOnUiThreadIfRequired(() => outputLabel.Text = output);
+            Console.WriteLine("browser>>"+output);
         }
 
         private void HandleToolStripLayout(object sender, LayoutEventArgs e)
