@@ -22,5 +22,17 @@ namespace TieYueShow.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("assets/htmls")]
+        public string HtmlRootPath {
+            get {
+                return ((string)(this["HtmlRootPath"]));
+            }
+            set {
+                this["HtmlRootPath"] = value;
+            }
+        }
     }
 }

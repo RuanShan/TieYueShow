@@ -12,7 +12,7 @@ namespace TieYueShow
     public partial class BrowserForm : Form
     {
         private static readonly string _myPath = AppDomain.CurrentDomain.BaseDirectory;
-        private static readonly string _pagesPath = System.IO.Path.Combine(_myPath, "Assets", "Htmls");
+        public static readonly string HtmlRootPath = System.IO.Path.Combine(_myPath, "Assets", "Htmls");
 
         private readonly ChromiumWebBrowser browser;
 
@@ -22,7 +22,7 @@ namespace TieYueShow
             //string uri = new Uri(GetPagePath("index.html")).AbsoluteUri;
             string uri = new Uri(GetPagePath("splash.html")).AbsoluteUri;
 
-            Text = "CefSharp";
+            Text = "铁越集团信息展示系统";
             WindowState = FormWindowState.Maximized;
 
             browser = new ChromiumWebBrowser(uri)
@@ -161,7 +161,7 @@ namespace TieYueShow
 
         private string GetPagePath(string pageName)
         {
-            return System.IO.Path.Combine(_pagesPath, pageName);
+            return System.IO.Path.Combine(HtmlRootPath, pageName);
         }
 
     }
